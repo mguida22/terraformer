@@ -1,0 +1,2430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: @terraformer/spatial</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: @terraformer/spatial</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".calculateBounds"><span class="type-signature">(static) </span>calculateBounds<span class="signature">(GeoJSON)</span><span class="type-signature"> &rarr; {Array.&lt;Number>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Calculate the bounding box of the input.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>GeoJSON</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="spatial_index.js.html">spatial/index.js</a>, <a href="spatial_index.js.html#line87">line 87</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>[ xmin, ymin, xmax, ymax ].</p>
+<pre class="prettyprint source lang-js"><code>import { calculateBounds } from &quot;@terraformer/spatial&quot;
+
+calculateBounds({
+  type: &quot;Point&quot;,
+  coordinates: [ 45, 60 ]
+})
+
+>> [45, 60, 45, 60]</code></pre>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Number></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".calculateEnvelope"><span class="type-signature">(static) </span>calculateEnvelope<span class="signature">(GeoJSON)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Calculate the envelope surrounding the input.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>GeoJSON</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="spatial_index.js.html">spatial/index.js</a>, <a href="spatial_index.js.html#line61">line 61</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Object in the form { x, y, w, h }.</p>
+<pre class="prettyprint source lang-js"><code>import { calculateEnvelope } from &quot;@terraformer/spatial&quot;
+
+calculateEnvelope({
+  type: &quot;Point&quot;,
+  coordinates: [ 100, 100 ]
+})
+
+>> { x: 100, y: 100, w: 0, h: 0, }</code></pre>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".contains"><span class="type-signature">(static) </span>contains<span class="signature">(GeoJSON, GeoJSON)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Returns <code>true</code> if the GeoJSON passed as the second argument is completely inside the GeoJSON object passed in the first position.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>GeoJSON</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><a href="https://tools.ietf.org/html">GeoJSON</a> that may contain the second input.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>GeoJSON</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><a href="https://tools.ietf.org/html/rfc7946#section-3.1.2">GeoJSON</a> that may be contained by the first input.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="spatial_index.js.html">spatial/index.js</a>, <a href="spatial_index.js.html#line746">line 746</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <pre class="prettyprint source lang-js"><code>import { contains } from &quot;@terraformer/spatial&quot;
+
+contains({
+  type: &quot;Polygon&quot;,
+  coordinates: [
+    [ [ 5, 5 ], [ 5, 15 ], [ 15, 15 ], [ 15, 5 ], [ 5, 5 ] ]
+]},
+{
+  type: &quot;Point&quot;,
+  coordinates: [ 10, 10 ]
+})
+
+>> true</code></pre>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".convexHull"><span class="type-signature">(static) </span>convexHull<span class="signature">(GeoJSON)</span><span class="type-signature"> &rarr; {Array.&lt;Coordinates>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Calculate the <a href="https://en.wikipedia.org/wiki/Convex_hull">convex hull</a> of GeoJSON input.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>GeoJSON</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="spatial_index.js.html">spatial/index.js</a>, <a href="spatial_index.js.html#line551">line 551</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>An array of GeoJSON coordinates representing the convex hull of the input GeoJSON.</p>
+<pre class="prettyprint source lang-js"><code>import { convexHull } from &quot;@terraformer/spatial&quot;
+
+convexHull({
+  'type': 'LineString',
+  'coordinates': [
+    [100, 0], [-45, 122], [80, -60]
+  ]
+})
+
+>>
+{
+  type: &quot;Polygon&quot;,
+  coordinates: [
+    [ 100, 0 ], [ -45, 122 ], [ 80, -60 ], [ 100, 0 ]
+  ]
+}</code></pre>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Coordinates></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".intersects"><span class="type-signature">(static) </span>intersects<span class="signature">(GeoJSON, GeoJSON)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Returns <code>true</code> if the two input GeoJSON objects intersect one another.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>GeoJSON</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>GeoJSON</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="spatial_index.js.html">spatial/index.js</a>, <a href="spatial_index.js.html#line986">line 986</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <pre class="prettyprint source lang-js"><code>import { intersects } from &quot;@terraformer/spatial&quot;
+
+intersects({
+  type: &quot;Point&quot;,
+  coordinates: [ 10, 10 ]
+},
+{
+  type: &quot;Polygon&quot;,
+  coordinates: [
+    [ [ 5, 5 ], [ 5, 15 ], [ 15, 15 ], [ 15, 5 ], [ 5, 5 ] ]
+  ]
+})
+
+>> true</code></pre>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".isConvex"><span class="type-signature">(static) </span>isConvex<span class="signature">(GeoJSON)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Determine whether input GeoJSON has a <a href="https://en.wikipedia.org/wiki/Convex_set">convex</a> shape.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>GeoJSON</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="spatial_index.js.html">spatial/index.js</a>, <a href="spatial_index.js.html#line613">line 613</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <pre class="prettyprint source lang-js"><code>import { isConvex } from &quot;@terraformer/spatial&quot;
+
+isConvex({
+  type: &quot;Polygon&quot;,
+  coordinates: [
+    [ 100, 0 ], [ -45, 122 ], [ 80, -60 ], [ 100, 0 ]
+  ]
+})
+
+>> true</code></pre>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".polygonContainsPoint"><span class="type-signature">(static) </span>polygonContainsPoint<span class="signature">(GeoJSON, GeoJSON)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Accepts the geometry of a polygon and point and returns <code>true</code> if the point falls within the polygon.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>GeoJSON</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><a href="https://tools.ietf.org/html/rfc7946#section-3.1.6">GeoJSON Polygon</a> coordinates.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>GeoJSON</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><a href="https://tools.ietf.org/html/rfc7946#section-3.1.2">GeoJSON Point</a> coordinates.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="spatial_index.js.html">spatial/index.js</a>, <a href="spatial_index.js.html#line660">line 660</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <pre class="prettyprint source lang-js"><code>import { polygonContainsPoint } from &quot;@terraformer/spatial&quot;
+
+polygonContainsPoint(
+  [
+    [1, 2], [2, 2], [2, 1], [1, 1], [1, 2]
+  ],
+  [10, 10]
+)
+
+>> false</code></pre>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".positionToGeographic"><span class="type-signature">(static) </span>positionToGeographic<span class="signature">(CoordinatePair)</span><span class="type-signature"> &rarr; {Array.&lt;Number, Number>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Reprojects the passed Coordinate pair to WGS84 (4326) spatial reference.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>CoordinatePair</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Number, Number></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>An X,Y position.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="spatial_index.js.html">spatial/index.js</a>, <a href="spatial_index.js.html#line346">line 346</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CoordinatePair.</p>
+<pre class="prettyprint source lang-js"><code>import { positionToGeographic } from &quot;@terraformer/spatial&quot;
+
+positionToGeographic([ -13580978, 5621521 ]) // [ 45, 60  ]</code></pre>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Number, Number></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".positionToMercator"><span class="type-signature">(static) </span>positionToMercator<span class="signature">(CoordinatePair)</span><span class="type-signature"> &rarr; {Array.&lt;Number, Number>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Reprojects the passed Coordinate pair to web mercator (3857) spatial reference.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>CoordinatePair</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Number, Number></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>An X,Y position.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="spatial_index.js.html">spatial/index.js</a>, <a href="spatial_index.js.html#line363">line 363</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>CoordinatePair.</p>
+<pre class="prettyprint source lang-js"><code>import { positionToGeographic } from &quot;@terraformer/spatial&quot;
+
+positionToMercator([ 45, 60 ]) // [ -13580978, 5621521  ]</code></pre>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Number, Number></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".toCircle"><span class="type-signature">(static) </span>toCircle<span class="signature">(CoordinatePair, Radius<span class="signature-attributes">opt</span>, Steps<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {GeoJSON}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Uses an input Coordinate pair to create a GeoJSON Feature containing a Polygon representing a circle with a discrete number of sides.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>CoordinatePair</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Number, Number></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>A GeoJSON Coordinate in <code>[x,y]</code> format.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Radius</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    250
+                
+                </td>
+            
+
+            <td class="description last"><p>The radius of the circle (in meters).</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Steps</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    64
+                
+                </td>
+            
+
+            <td class="description last"><p>The number of sides the output polygon will contain.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="spatial_index.js.html">spatial/index.js</a>, <a href="spatial_index.js.html#line1040">line 1040</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <pre class="prettyprint source lang-js"><code>import { toCircle } from &quot;@terraformer/spatial&quot;
+
+toCircle([ -118, 34 ], 500)
+
+>> { type: &quot;Feature&quot;, geometry: { type: &quot;Polygon&quot;}, coordinates: [...] }</code></pre>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">GeoJSON</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".toGeographic"><span class="type-signature">(static) </span>toGeographic<span class="signature">(GeoJSON)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Reproject Web Mercator GeoJSON to WGS84 (Lat/Long).</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>GeoJSON</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="spatial_index.js.html">spatial/index.js</a>, <a href="spatial_index.js.html#line438">line 438</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>GeoJSON</p>
+<pre class="prettyprint source lang-js"><code>import { toGeographic } from &quot;@terraformer/spatial&quot;
+
+toGeographic({
+  type: &quot;Point&quot;,
+  coordinates: [ -13580978, 5621521 ]
+})
+
+>> { type: &quot;Point&quot;, coordinates: [ 45, 60 ] }</code></pre>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".toMercator"><span class="type-signature">(static) </span>toMercator<span class="signature">(GeoJSON)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Reproject WGS84 (Lat/Lng) GeoJSON to Web Mercator.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>GeoJSON</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="spatial_index.js.html">spatial/index.js</a>, <a href="spatial_index.js.html#line418">line 418</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>GeoJSON</p>
+<pre class="prettyprint source lang-js"><code>import { toMercator } from &quot;@terraformer/spatial&quot;
+
+toMercator({
+  type: &quot;Point&quot;,
+  coordinates: [ 45, 60 ]
+})
+
+>> { type: &quot;Point&quot;, coordinates: [ -13580978, 5621521 ], crs }</code></pre>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".within"><span class="type-signature">(static) </span>within<span class="signature">(GeoJSON, GeoJSON)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Returns <code>true</code> if the GeoJSON passed as the first argument is completely inside the GeoJSON object passed in the second position.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>GeoJSON</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><a href="https://tools.ietf.org/html">GeoJSON</a> that may be within the second input.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>GeoJSON</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><a href="https://tools.ietf.org/html/rfc7946#section-3.1.2">GeoJSON</a> that may contain the first input.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="spatial_index.js.html">spatial/index.js</a>, <a href="spatial_index.js.html#line773">line 773</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <pre class="prettyprint source lang-js"><code>import { within } from &quot;@terraformer/spatial&quot;
+
+within({
+  type: &quot;Point&quot;,
+  coordinates: [ 10, 10 ]
+},
+{
+  type: &quot;Polygon&quot;,
+  coordinates: [
+    [ [ 5, 5 ], [ 5, 15 ], [ 15, 15 ], [ 15, 5 ], [ 5, 5 ] ]
+  ]
+})
+
+>> true</code></pre>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-@terraformer_arcgis.html">@terraformer/arcgis</a></li><li><a href="module-@terraformer_spatial.html">@terraformer/spatial</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jan 07 2019 19:22:42 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
