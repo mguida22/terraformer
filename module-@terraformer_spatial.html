@@ -72,7 +72,7 @@
 
 
 <div class="description">
-    <p>Calculate the bounding box of the input.</p>
+    Calculate the bounding box of the input.
 </div>
 
 
@@ -124,7 +124,7 @@
 
             
 
-            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+            <td class="description last">The input [GeoJSON](https://tools.ietf.org/html/rfc7946) Geometry, Feature, GeometryCollection or ReatureCollection.</td>
         </tr>
 
     
@@ -192,15 +192,17 @@
 
         
 <div class="param-desc">
-    <p>[ xmin, ymin, xmax, ymax ].</p>
-<pre class="prettyprint source lang-js"><code>import { calculateBounds } from &quot;@terraformer/spatial&quot;
+    [ xmin, ymin, xmax, ymax ].
+```js
+import { calculateBounds } from "@terraformer/spatial"
 
 calculateBounds({
-  type: &quot;Point&quot;,
+  type: "Point",
   coordinates: [ 45, 60 ]
 })
 
->> [45, 60, 45, 60]</code></pre>
+>> [45, 60, 45, 60]
+```
 </div>
 
 
@@ -237,7 +239,7 @@ calculateBounds({
 
 
 <div class="description">
-    <p>Calculate the envelope surrounding the input.</p>
+    Calculate the envelope surrounding the input.
 </div>
 
 
@@ -289,7 +291,7 @@ calculateBounds({
 
             
 
-            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+            <td class="description last">The input [GeoJSON](https://tools.ietf.org/html/rfc7946) Geometry, Feature, GeometryCollection or ReatureCollection.</td>
         </tr>
 
     
@@ -357,15 +359,17 @@ calculateBounds({
 
         
 <div class="param-desc">
-    <p>Object in the form { x, y, w, h }.</p>
-<pre class="prettyprint source lang-js"><code>import { calculateEnvelope } from &quot;@terraformer/spatial&quot;
+    Object in the form { x, y, w, h }.
+```js
+import { calculateEnvelope } from "@terraformer/spatial"
 
 calculateEnvelope({
-  type: &quot;Point&quot;,
+  type: "Point",
   coordinates: [ 100, 100 ]
 })
 
->> { x: 100, y: 100, w: 0, h: 0, }</code></pre>
+>> { x: 100, y: 100, w: 0, h: 0, }
+```
 </div>
 
 
@@ -402,7 +406,7 @@ calculateEnvelope({
 
 
 <div class="description">
-    <p>Returns <code>true</code> if the GeoJSON passed as the second argument is completely inside the GeoJSON object passed in the first position.</p>
+    Returns `true` if the GeoJSON passed as the second argument is completely inside the GeoJSON object passed in the first position.
 </div>
 
 
@@ -454,7 +458,7 @@ calculateEnvelope({
 
             
 
-            <td class="description last"><p><a href="https://tools.ietf.org/html">GeoJSON</a> that may contain the second input.</p></td>
+            <td class="description last">[GeoJSON](https://tools.ietf.org/html) that may contain the second input.</td>
         </tr>
 
     
@@ -477,7 +481,7 @@ calculateEnvelope({
 
             
 
-            <td class="description last"><p><a href="https://tools.ietf.org/html/rfc7946#section-3.1.2">GeoJSON</a> that may be contained by the first input.</p></td>
+            <td class="description last">[GeoJSON](https://tools.ietf.org/html/rfc7946#section-3.1.2) that may be contained by the first input.</td>
         </tr>
 
     
@@ -545,19 +549,21 @@ calculateEnvelope({
 
         
 <div class="param-desc">
-    <pre class="prettyprint source lang-js"><code>import { contains } from &quot;@terraformer/spatial&quot;
+    ```js
+import { contains } from "@terraformer/spatial"
 
 contains({
-  type: &quot;Polygon&quot;,
+  type: "Polygon",
   coordinates: [
     [ [ 5, 5 ], [ 5, 15 ], [ 15, 15 ], [ 15, 5 ], [ 5, 5 ] ]
 ]},
 {
-  type: &quot;Point&quot;,
+  type: "Point",
   coordinates: [ 10, 10 ]
 })
 
->> true</code></pre>
+>> true
+```
 </div>
 
 
@@ -594,7 +600,7 @@ contains({
 
 
 <div class="description">
-    <p>Calculate the <a href="https://en.wikipedia.org/wiki/Convex_hull">convex hull</a> of GeoJSON input.</p>
+    Calculate the [convex hull](https://en.wikipedia.org/wiki/Convex_hull) of GeoJSON input.
 </div>
 
 
@@ -646,7 +652,7 @@ contains({
 
             
 
-            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+            <td class="description last">The input [GeoJSON](https://tools.ietf.org/html/rfc7946) Geometry, Feature, GeometryCollection or ReatureCollection.</td>
         </tr>
 
     
@@ -714,8 +720,9 @@ contains({
 
         
 <div class="param-desc">
-    <p>An array of GeoJSON coordinates representing the convex hull of the input GeoJSON.</p>
-<pre class="prettyprint source lang-js"><code>import { convexHull } from &quot;@terraformer/spatial&quot;
+    An array of GeoJSON coordinates representing the convex hull of the input GeoJSON.
+```js
+import { convexHull } from "@terraformer/spatial"
 
 convexHull({
   'type': 'LineString',
@@ -726,11 +733,12 @@ convexHull({
 
 >>
 {
-  type: &quot;Polygon&quot;,
+  type: "Polygon",
   coordinates: [
     [ 100, 0 ], [ -45, 122 ], [ 80, -60 ], [ 100, 0 ]
   ]
-}</code></pre>
+}
+```
 </div>
 
 
@@ -767,7 +775,7 @@ convexHull({
 
 
 <div class="description">
-    <p>Returns <code>true</code> if the two input GeoJSON objects intersect one another.</p>
+    Returns `true` if the two input GeoJSON objects intersect one another.
 </div>
 
 
@@ -819,7 +827,7 @@ convexHull({
 
             
 
-            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+            <td class="description last">The input [GeoJSON](https://tools.ietf.org/html/rfc7946) Geometry, Feature, GeometryCollection or ReatureCollection.</td>
         </tr>
 
     
@@ -842,7 +850,7 @@ convexHull({
 
             
 
-            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+            <td class="description last">The input [GeoJSON](https://tools.ietf.org/html/rfc7946) Geometry, Feature, GeometryCollection or ReatureCollection.</td>
         </tr>
 
     
@@ -910,20 +918,22 @@ convexHull({
 
         
 <div class="param-desc">
-    <pre class="prettyprint source lang-js"><code>import { intersects } from &quot;@terraformer/spatial&quot;
+    ```js
+import { intersects } from "@terraformer/spatial"
 
 intersects({
-  type: &quot;Point&quot;,
+  type: "Point",
   coordinates: [ 10, 10 ]
 },
 {
-  type: &quot;Polygon&quot;,
+  type: "Polygon",
   coordinates: [
     [ [ 5, 5 ], [ 5, 15 ], [ 15, 15 ], [ 15, 5 ], [ 5, 5 ] ]
   ]
 })
 
->> true</code></pre>
+>> true
+```
 </div>
 
 
@@ -960,7 +970,7 @@ intersects({
 
 
 <div class="description">
-    <p>Determine whether input GeoJSON has a <a href="https://en.wikipedia.org/wiki/Convex_set">convex</a> shape.</p>
+    Determine whether input GeoJSON has a [convex](https://en.wikipedia.org/wiki/Convex_set) shape.
 </div>
 
 
@@ -1012,7 +1022,7 @@ intersects({
 
             
 
-            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+            <td class="description last">The input [GeoJSON](https://tools.ietf.org/html/rfc7946) Geometry, Feature, GeometryCollection or ReatureCollection.</td>
         </tr>
 
     
@@ -1080,16 +1090,18 @@ intersects({
 
         
 <div class="param-desc">
-    <pre class="prettyprint source lang-js"><code>import { isConvex } from &quot;@terraformer/spatial&quot;
+    ```js
+import { isConvex } from "@terraformer/spatial"
 
 isConvex({
-  type: &quot;Polygon&quot;,
+  type: "Polygon",
   coordinates: [
     [ 100, 0 ], [ -45, 122 ], [ 80, -60 ], [ 100, 0 ]
   ]
 })
 
->> true</code></pre>
+>> true
+```
 </div>
 
 
@@ -1126,7 +1138,7 @@ isConvex({
 
 
 <div class="description">
-    <p>Accepts the geometry of a polygon and point and returns <code>true</code> if the point falls within the polygon.</p>
+    Accepts the geometry of a polygon and point and returns `true` if the point falls within the polygon.
 </div>
 
 
@@ -1178,7 +1190,7 @@ isConvex({
 
             
 
-            <td class="description last"><p><a href="https://tools.ietf.org/html/rfc7946#section-3.1.6">GeoJSON Polygon</a> coordinates.</p></td>
+            <td class="description last">[GeoJSON Polygon](https://tools.ietf.org/html/rfc7946#section-3.1.6) coordinates.</td>
         </tr>
 
     
@@ -1201,7 +1213,7 @@ isConvex({
 
             
 
-            <td class="description last"><p><a href="https://tools.ietf.org/html/rfc7946#section-3.1.2">GeoJSON Point</a> coordinates.</p></td>
+            <td class="description last">[GeoJSON Point](https://tools.ietf.org/html/rfc7946#section-3.1.2) coordinates.</td>
         </tr>
 
     
@@ -1269,7 +1281,8 @@ isConvex({
 
         
 <div class="param-desc">
-    <pre class="prettyprint source lang-js"><code>import { polygonContainsPoint } from &quot;@terraformer/spatial&quot;
+    ```js
+import { polygonContainsPoint } from "@terraformer/spatial"
 
 polygonContainsPoint(
   [
@@ -1278,7 +1291,8 @@ polygonContainsPoint(
   [10, 10]
 )
 
->> false</code></pre>
+>> false
+```
 </div>
 
 
@@ -1315,7 +1329,7 @@ polygonContainsPoint(
 
 
 <div class="description">
-    <p>Reprojects the passed Coordinate pair to WGS84 (4326) spatial reference.</p>
+    Reprojects the passed Coordinate pair to WGS84 (4326) spatial reference.
 </div>
 
 
@@ -1367,7 +1381,7 @@ polygonContainsPoint(
 
             
 
-            <td class="description last"><p>An X,Y position.</p></td>
+            <td class="description last">An X,Y position.</td>
         </tr>
 
     
@@ -1435,10 +1449,12 @@ polygonContainsPoint(
 
         
 <div class="param-desc">
-    <p>CoordinatePair.</p>
-<pre class="prettyprint source lang-js"><code>import { positionToGeographic } from &quot;@terraformer/spatial&quot;
+    CoordinatePair.
+```js
+import { positionToGeographic } from "@terraformer/spatial"
 
-positionToGeographic([ -13580978, 5621521 ]) // [ 45, 60  ]</code></pre>
+positionToGeographic([ -13580978, 5621521 ]) // [ 45, 60  ]
+```
 </div>
 
 
@@ -1475,7 +1491,7 @@ positionToGeographic([ -13580978, 5621521 ]) // [ 45, 60  ]</code></pre>
 
 
 <div class="description">
-    <p>Reprojects the passed Coordinate pair to web mercator (3857) spatial reference.</p>
+    Reprojects the passed Coordinate pair to web mercator (3857) spatial reference.
 </div>
 
 
@@ -1527,7 +1543,7 @@ positionToGeographic([ -13580978, 5621521 ]) // [ 45, 60  ]</code></pre>
 
             
 
-            <td class="description last"><p>An X,Y position.</p></td>
+            <td class="description last">An X,Y position.</td>
         </tr>
 
     
@@ -1595,10 +1611,12 @@ positionToGeographic([ -13580978, 5621521 ]) // [ 45, 60  ]</code></pre>
 
         
 <div class="param-desc">
-    <p>CoordinatePair.</p>
-<pre class="prettyprint source lang-js"><code>import { positionToGeographic } from &quot;@terraformer/spatial&quot;
+    CoordinatePair.
+```js
+import { positionToGeographic } from "@terraformer/spatial"
 
-positionToMercator([ 45, 60 ]) // [ -13580978, 5621521  ]</code></pre>
+positionToMercator([ 45, 60 ]) // [ -13580978, 5621521  ]
+```
 </div>
 
 
@@ -1635,7 +1653,7 @@ positionToMercator([ 45, 60 ]) // [ -13580978, 5621521  ]</code></pre>
 
 
 <div class="description">
-    <p>Uses an input Coordinate pair to create a GeoJSON Feature containing a Polygon representing a circle with a discrete number of sides.</p>
+    Uses an input Coordinate pair to create a GeoJSON Feature containing a Polygon representing a circle with a discrete number of sides.
 </div>
 
 
@@ -1703,7 +1721,7 @@ positionToMercator([ 45, 60 ]) // [ -13580978, 5621521  ]</code></pre>
                 </td>
             
 
-            <td class="description last"><p>A GeoJSON Coordinate in <code>[x,y]</code> format.</p></td>
+            <td class="description last">A GeoJSON Coordinate in `[x,y]` format.</td>
         </tr>
 
     
@@ -1742,7 +1760,7 @@ positionToMercator([ 45, 60 ]) // [ -13580978, 5621521  ]</code></pre>
                 </td>
             
 
-            <td class="description last"><p>The radius of the circle (in meters).</p></td>
+            <td class="description last">The radius of the circle (in meters).</td>
         </tr>
 
     
@@ -1781,7 +1799,7 @@ positionToMercator([ 45, 60 ]) // [ -13580978, 5621521  ]</code></pre>
                 </td>
             
 
-            <td class="description last"><p>The number of sides the output polygon will contain.</p></td>
+            <td class="description last">The number of sides the output polygon will contain.</td>
         </tr>
 
     
@@ -1849,11 +1867,13 @@ positionToMercator([ 45, 60 ]) // [ -13580978, 5621521  ]</code></pre>
 
         
 <div class="param-desc">
-    <pre class="prettyprint source lang-js"><code>import { toCircle } from &quot;@terraformer/spatial&quot;
+    ```js
+import { toCircle } from "@terraformer/spatial"
 
 toCircle([ -118, 34 ], 500)
 
->> { type: &quot;Feature&quot;, geometry: { type: &quot;Polygon&quot;}, coordinates: [...] }</code></pre>
+>> { type: "Feature", geometry: { type: "Polygon"}, coordinates: [...] }
+```
 </div>
 
 
@@ -1890,7 +1910,7 @@ toCircle([ -118, 34 ], 500)
 
 
 <div class="description">
-    <p>Reproject Web Mercator GeoJSON to WGS84 (Lat/Long).</p>
+    Reproject Web Mercator GeoJSON to WGS84 (Lat/Long).
 </div>
 
 
@@ -1942,7 +1962,7 @@ toCircle([ -118, 34 ], 500)
 
             
 
-            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+            <td class="description last">The input [GeoJSON](https://tools.ietf.org/html/rfc7946) Geometry, Feature, GeometryCollection or ReatureCollection.</td>
         </tr>
 
     
@@ -2010,15 +2030,17 @@ toCircle([ -118, 34 ], 500)
 
         
 <div class="param-desc">
-    <p>GeoJSON</p>
-<pre class="prettyprint source lang-js"><code>import { toGeographic } from &quot;@terraformer/spatial&quot;
+    GeoJSON
+```js
+import { toGeographic } from "@terraformer/spatial"
 
 toGeographic({
-  type: &quot;Point&quot;,
+  type: "Point",
   coordinates: [ -13580978, 5621521 ]
 })
 
->> { type: &quot;Point&quot;, coordinates: [ 45, 60 ] }</code></pre>
+>> { type: "Point", coordinates: [ 45, 60 ] }
+```
 </div>
 
 
@@ -2055,7 +2077,7 @@ toGeographic({
 
 
 <div class="description">
-    <p>Reproject WGS84 (Lat/Lng) GeoJSON to Web Mercator.</p>
+    Reproject WGS84 (Lat/Lng) GeoJSON to Web Mercator.
 </div>
 
 
@@ -2107,7 +2129,7 @@ toGeographic({
 
             
 
-            <td class="description last"><p>The input <a href="https://tools.ietf.org/html/rfc7946">GeoJSON</a> Geometry, Feature, GeometryCollection or ReatureCollection.</p></td>
+            <td class="description last">The input [GeoJSON](https://tools.ietf.org/html/rfc7946) Geometry, Feature, GeometryCollection or ReatureCollection.</td>
         </tr>
 
     
@@ -2175,15 +2197,17 @@ toGeographic({
 
         
 <div class="param-desc">
-    <p>GeoJSON</p>
-<pre class="prettyprint source lang-js"><code>import { toMercator } from &quot;@terraformer/spatial&quot;
+    GeoJSON
+```js
+import { toMercator } from "@terraformer/spatial"
 
 toMercator({
-  type: &quot;Point&quot;,
+  type: "Point",
   coordinates: [ 45, 60 ]
 })
 
->> { type: &quot;Point&quot;, coordinates: [ -13580978, 5621521 ], crs }</code></pre>
+>> { type: "Point", coordinates: [ -13580978, 5621521 ], crs }
+```
 </div>
 
 
@@ -2220,7 +2244,7 @@ toMercator({
 
 
 <div class="description">
-    <p>Returns <code>true</code> if the GeoJSON passed as the first argument is completely inside the GeoJSON object passed in the second position.</p>
+    Returns `true` if the GeoJSON passed as the first argument is completely inside the GeoJSON object passed in the second position.
 </div>
 
 
@@ -2272,7 +2296,7 @@ toMercator({
 
             
 
-            <td class="description last"><p><a href="https://tools.ietf.org/html">GeoJSON</a> that may be within the second input.</p></td>
+            <td class="description last">[GeoJSON](https://tools.ietf.org/html) that may be within the second input.</td>
         </tr>
 
     
@@ -2295,7 +2319,7 @@ toMercator({
 
             
 
-            <td class="description last"><p><a href="https://tools.ietf.org/html/rfc7946#section-3.1.2">GeoJSON</a> that may contain the first input.</p></td>
+            <td class="description last">[GeoJSON](https://tools.ietf.org/html/rfc7946#section-3.1.2) that may contain the first input.</td>
         </tr>
 
     
@@ -2363,20 +2387,22 @@ toMercator({
 
         
 <div class="param-desc">
-    <pre class="prettyprint source lang-js"><code>import { within } from &quot;@terraformer/spatial&quot;
+    ```js
+import { within } from "@terraformer/spatial"
 
 within({
-  type: &quot;Point&quot;,
+  type: "Point",
   coordinates: [ 10, 10 ]
 },
 {
-  type: &quot;Polygon&quot;,
+  type: "Polygon",
   coordinates: [
     [ [ 5, 5 ], [ 5, 15 ], [ 15, 15 ], [ 15, 5 ], [ 5, 5 ] ]
   ]
 })
 
->> true</code></pre>
+>> true
+```
 </div>
 
 
@@ -2421,7 +2447,7 @@ within({
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 24 2019 00:38:07 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 24 2019 01:46:55 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
